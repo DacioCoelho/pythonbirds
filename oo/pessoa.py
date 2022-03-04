@@ -13,7 +13,16 @@ class Pessoa:  #Letras em maisculo no inicio das frases
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá {(self)}'
+
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):   #CLS faz alusão a CLASSE que está criando esse metodo, no caso Pessoa.
+        return f'{cls}, olhos da {cls.olhos} '
+
 
 if __name__ == '__main__':
     bernardo = Pessoa(nome='Bernardo')
@@ -33,4 +42,7 @@ if __name__ == '__main__':
     print(bernardo.olhos)
     del bernardo.olhos
     print(bernardo.olhos)
+
+    print(Pessoa.metodo_estatico(), ana.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), ana.nome_e_atributos_de_classe())
 
