@@ -5,12 +5,12 @@ COMPOSIÇÃO - É QUANDO VOCÊ UTILIZA ATRIBUTOS DE UMA CLASSE OUTRAS CLASSES DE
 """
 Você deve criar um classe carro que vai possuir dois atributos compsotos por duas classes:
 
-1) Motor
+1) Motor  #__init__():
 2) Direção
 
 O motor terá a responsabilidade de controlar a velocidade.
 Ele oferece os seguintes atributos:
-1) Atributo Velocidade
+1) Atributo Velocidade    #self.velocidade =0
 2) Método acelerar, que deverá incrementar a velocidade de um uma unidade
 3) Método frear que deverá decrementar a velocidade em duas unidades.
 
@@ -96,3 +96,40 @@ O   L
     >>> carro.calcular_direção()
     'Oeste'    
     """
+
+class Motor:
+    def __init__(self):
+        self.velocidade = 0
+
+    def acelerar(self):
+        self.velocidade += 1
+
+    def frear(self):
+        self.velocidade -+ 2
+        self.velocidade = max(0, self.velocidade)
+
+
+NORTE = 'Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
+
+class Direção:
+    rotacao_a_direita_dct = {NORTE:LESTE, LESTE:SUL, SUL:OESTE, OESTE:NORTE}
+    rotacao_a_esquerda_dct = {NORTE: OESTE,OESTE: SUL, SUL: LESTE, LESTE: NORTE}
+
+    def __init__(self):
+        self.direcao = NORTE
+
+    def girar_a_direita(self):
+ #       if self.valor == NORTE:
+  #          self.valor = LESTE
+   #     elif self.valor == LESTE:
+    #        self.valor = SUL
+     #   elif self.valor == SUL:
+      #      self.valor = OESTE
+        self.valor = self.rotacao_a_direita_dct[self.valor]
+
+
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
